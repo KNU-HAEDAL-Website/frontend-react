@@ -11,6 +11,7 @@
     "swagger-typescript-api": "swagger-typescript-api -p https://www.knu-haedal.com/api/v3/api-docs -r -o ./src/models --modular -d --extract-request-body --extract-response-body --extract-response-error --axios"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.10.0",
     "@tanstack/react-query": "^5.64.0",
     "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
@@ -23,6 +24,7 @@
     "swagger-typescript-api": "^13.0.23",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.24.1",
     "zustand": "^5.0.3"
   },
   "devDependencies": {
