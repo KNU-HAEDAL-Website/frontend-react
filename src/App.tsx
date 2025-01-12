@@ -3,7 +3,7 @@ function App() {
     <>
       <div>gg</div>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
