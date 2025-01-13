@@ -8,7 +8,7 @@ import {
   AdminUserRequest,
   ChangeRoleRequest,
   GetAdminUsersRequest,
-} from '@/service/models'
+} from '@/service/model'
 
 export const changeRoleApi = async ({ userId, data }: ChangeRoleRequest) => {
   const adminClient = new Admin(AUTHORIZATION_API)

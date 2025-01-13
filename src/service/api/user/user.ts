@@ -3,7 +3,7 @@
 import { queryOptions } from '@tanstack/react-query'
 
 import { AUTHORIZATION_API } from '@/service/config'
-import { GetUserRequest, Users } from '@/service/models'
+import { GetUserRequest, Users } from '@/service/model'
 
 const getUsers = async () => {
   const userClient = new Users(AUTHORIZATION_API)

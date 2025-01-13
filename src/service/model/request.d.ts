@@ -1,0 +1,137 @@
+import { Paging } from '@/types'
+
+export type GetActivitiesRequest = {
+  semesterId: number
+}
+
+export type GetActivityDetailRequest = {
+  semesterId: number
+  activityId: number
+}
+
+export type AddActivityRequest = {
+  semesterId: number
+  data: CreateActivityRequestDto
+}
+
+export type DeleteActivityRequest = {
+  semesterId: number
+  activityId: number
+}
+
+export type AddSemesterRequest = {
+  semesterName: string
+}
+
+export type DeleteSemesterRequest = {
+  semesterId: number
+}
+
+export type AdminUserRequest = {
+  userId: string
+}
+
+export type ChangeRoleRequest = {
+  userId: string
+  data: UpdateRoleRequestDto
+}
+
+export type GetAdminUsersRequest = {
+  active: boolean
+}
+
+export type AddBoardRequest = {
+  activityId: number
+  data: RegisterBoardPayload
+}
+
+export type BoardDetailRequest = {
+  activityId: number
+  boardId: number
+}
+
+export type BoardPagingRequest = {
+  activityId: number
+  page: number
+  size?: number
+}
+
+export type DeleteBoardRequest = {
+  activityId: number
+  boardId: number
+}
+
+export type BoardPagingResponse = {
+  boards: BoardResponseDto[]
+} & Paging
+
+export type GetUserInfoRequest = {
+  userId: string
+}
+
+export type GetUserProfileRequest = {
+  userId: string
+}
+
+export type UpdateProfileRequest = {
+  userId: string
+  profileData: ProfileRequestDto
+}
+
+export type ActivityPostPagingRequest = {
+  boardId: number
+  page: number
+  size?: number
+}
+
+export type AddActivityPostRequest = {
+  boardId: number
+  data: PostWithBoardRequestDto
+}
+
+export type DeleteActivityPostRequest = {
+  boardId: number
+  postId: number
+}
+
+export type GetActivityPostDetailRequest = {
+  boardId: number
+  postId: number
+}
+
+type PostPagingResponse = {
+  posts: PostWithBoardSummaryResponseDto[]
+} & Paging
+
+export type UploadPostImageRequest = {
+  data: RegisterPostImagePayload
+}
+
+export type AddNoticePostRequest = {
+  data: BasePostRequestDto
+}
+
+export type DeleteNoticePostRequest = {
+  postId: number
+}
+
+export type GetNoticePostDetailRequest = {
+  postId: number
+}
+
+export type NoticePostPagingRequest = {
+  page: number
+  size?: number
+}
+
+type NoticePostPagingResponse = {
+  posts: BasePostSummaryResponseDto[]
+} & Paging
+
+export type GetSemesterRequest = {
+  semesterId: number
+}
+
+export type GetUserRequest = {
+  userId: string
+}

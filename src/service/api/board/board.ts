@@ -8,14 +8,9 @@ import {
   AddBoardRequest,
   BoardDetailRequest,
   BoardPagingRequest,
-  BoardResponseDto,
+  BoardPagingResponse,
   DeleteBoardRequest,
-} from '@/service/models'
-import { Paging } from '@/types/paging'
-
-type BoardPagingResponse = {
-  boards: BoardResponseDto[]
-} & Paging
+} from '@/service/model'
 
 const getBoardsPaging = async ({
   activityId,

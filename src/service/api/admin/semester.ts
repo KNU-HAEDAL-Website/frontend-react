@@ -5,7 +5,7 @@ import {
   AddSemesterRequest,
   Admin,
   DeleteSemesterRequest,
-} from '@/service/models'
+} from '@/service/model'
 
 export const deleteSemesterApi = async ({
   semesterId,

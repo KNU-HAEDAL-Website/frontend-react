@@ -1,6 +1,6 @@
 'use client'
 
-import formatDateDistanceFromToday from '@/utils/date-distance'
+import { formatDateDistanceFromToday } from '@/utils'
 import { queryOptions } from '@tanstack/react-query'
 
 import { AUTHORIZATION_API, BACKEND_API } from '@/service/config'
@@ -10,13 +10,8 @@ import {
   Boards,
   DeleteActivityPostRequest,
   GetActivityPostDetailRequest,
-  PostWithBoardSummaryResponseDto,
-} from '@/service/models'
-import { Paging } from '@/types/paging'
-
-type PostPagingResponse = {
-  posts: PostWithBoardSummaryResponseDto[]
-} & Paging
+  PostPagingResponse,
+} from '@/service/model'
 
 const activityPostPaging = async ({
   boardId,

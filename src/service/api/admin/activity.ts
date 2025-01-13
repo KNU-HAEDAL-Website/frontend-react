@@ -5,7 +5,7 @@ import {
   AddActivityRequest,
   Admin,
   DeleteActivityRequest,
-} from '@/service/models'
+} from '@/service/model'
 
 export const deleteActivityApi = async ({
   semesterId,

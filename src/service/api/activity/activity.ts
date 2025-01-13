@@ -7,7 +7,7 @@ import {
   GetActivitiesRequest,
   GetActivityDetailRequest,
   Semesters,
-} from '@/service/models'
+} from '@/service/model'
 
 const getActivities = async ({ semesterId }: GetActivitiesRequest) => {
   const semesterClient = new Semesters(BACKEND_API)

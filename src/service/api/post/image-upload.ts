@@ -1,8 +1,8 @@
 'use client'
 
 import { AUTHORIZATION_API } from '@/service/config'
-import { UploadPostImageRequest } from '@/service/models'
-import { PostImages } from '@/service/models/PostImages'
+import { UploadPostImageRequest } from '@/service/model'
+import { PostImages } from '@/service/model'
 
 export const uploadPostImageApi = async ({ data }: UploadPostImageRequest) => {
   const postImageClient = new PostImages(AUTHORIZATION_API)

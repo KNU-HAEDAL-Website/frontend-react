@@ -4,20 +4,20 @@ import { queryOptions } from '@tanstack/react-query'
 
 import { AUTHORIZATION_API } from '@/service/config'
 import {
-  GetUserRequest,
-  ProfileRequestDto,
-  RequestParams,
+  GetUserInfoRequest,
+  GetUserProfileRequest,
   UpdateProfileImagePayload,
+  UpdateProfileRequest,
   Users,
-} from '@/service/models'
+} from '@/service/model'
 
-const getUserInfo = async ({ userId }: GetUserRequest) => {
+const getUserInfo = async ({ userId }: GetUserInfoRequest) => {
   const userClient = new Users(AUTHORIZATION_API)
   const response = await userClient.getUser(userId)
   return response.data
 }
 
-const getUserProfile = async ({ userId }: GetUserRequest) => {
+const getUserProfile = async ({ userId }: GetUserProfileRequest) => {
   const userClient = new Users(AUTHORIZATION_API)
   const response = await userClient.getProfile(userId)
   return response.data
@@ -25,24 +25,24 @@ const getUserProfile = async ({ userId }: GetUserRequest) => {
 
 export const userQueries = {
   all: () => ['users'],
-  userInfos: ({ userId }: GetUserRequest) => [
+  userInfos: ({ userId }: GetUserInfoRequest) => [
     ...userQueries.all(),
     'info',
     userId,
   ],
-  userInfo: ({ userId }: GetUserRequest) =>
+  userInfo: ({ userId }: GetUserInfoRequest) =>
     queryOptions({
       queryKey: [...userQueries.userInfos({ userId })],
       enabled: !!userId,
       queryFn: async () => getUserInfo({ userId }),
     }),
 
-  profiles: ({ userId }: GetUserRequest) => [
+  profiles: ({ userId }: GetUserProfileRequest) => [
     ...userQueries.all(),
     'profile',
     userId,
   ],
-  profile: ({ userId }: GetUserRequest) =>
+  profile: ({ userId }: GetUserProfileRequest) =>
     queryOptions({
       queryKey: [...userQueries.profiles({ userId })],
       enabled: !!userId,
@@ -50,13 +50,7 @@ export const userQueries = {
     }),
 }
 
-type UpdateProfileRequest = {
-  userId: string
-  profileData: ProfileRequestDto
-  params?: RequestParams
-}
-
-export const putUpdateProfileApi = async ({
+export const updateProfileApi = async ({
   userId,
   profileData,
 }: UpdateProfileRequest) => {
@@ -65,13 +59,12 @@ export const putUpdateProfileApi = async ({
   return response.data
 }
 
-export const putUpdateProfileImageApi = async ({
+export const updateProfileImageApi = async ({
   userId,
   file,
 }: {
   userId: string
   file: File
-  params?: RequestParams
 }) => {
   const userClient = new Users(AUTHORIZATION_API)
   const formData = new FormData()

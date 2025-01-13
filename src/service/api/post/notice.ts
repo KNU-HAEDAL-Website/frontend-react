@@ -6,17 +6,12 @@ import { queryOptions } from '@tanstack/react-query'
 import { AUTHORIZATION_API, BACKEND_API } from '@/service/config'
 import {
   AddNoticePostRequest,
-  BasePostSummaryResponseDto,
   DeleteNoticePostRequest,
   GetNoticePostDetailRequest,
   NoticePostPagingRequest,
-} from '@/service/models'
-import { Notices } from '@/service/models/Notices'
-import { Paging } from '@/types/paging'
-
-type NoticePostPagingResponse = {
-  posts: BasePostSummaryResponseDto[]
-} & Paging
+  NoticePostPagingResponse,
+} from '@/service/model'
+import { Notices } from '@/service/model/Notices'
 
 const noticePostPaging = async ({
   page,
