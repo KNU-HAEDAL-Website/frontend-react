@@ -1,41 +1,68 @@
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router'
 
+import {
+  ActivityBoardPage,
+  ActivityPage,
+  ActivityPostPage,
+  AdminMemberPage,
+  AdminSemesterPage,
+  CreateActivityPostPage,
+  CreateBoardPage,
+  CreateEventPostPage,
+  CreateNoticePostPage,
+  EventPage,
+  EventPostPage,
+  LoginPage,
+  MainPage,
+  MemberPage,
+  MyPage,
+  NotFoundPage,
+  NoticePage,
+  NoticePostPage,
+  RecruitPage,
+  SignupPage,
+} from '@/pages'
+
 export const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<div>g</div>} />
+        <Route path="/" element={<MainPage />} />
         <Route path="/auth">
-          <Route path="login" element={<div>1</div>} />
-          <Route path="signup" element={<div>2</div>} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="signup" element={<SignupPage />} />
         </Route>
         <Route path="/admin">
-          <Route path="member" element={<div>1</div>} />
-          <Route path="semester" element={<div>2</div>} />
+          <Route path="member" element={<AdminMemberPage />} />
+          <Route path="semester" element={<AdminSemesterPage />} />
         </Route>
         <Route path="/activity">
           <Route path=":semesterId" element={<Outlet />}>
-            <Route path=":activityId" element={<div>2</div>} />
+            <Route path=":activityId" element={<ActivityPage />} />
           </Route>
         </Route>
         <Route path="/activity/:activityId">
-          <Route path="boards/:boardId" element={<div>1</div>} />
-          <Route path="create-board" element={<div>2</div>} />
+          <Route path="boards/:boardId" element={<ActivityBoardPage />} />
+          <Route path="create-board" element={<CreateBoardPage />} />
         </Route>
         <Route path="/boards/:boardId">
-          <Route path="posts/:postId" element={<div>1</div>} />
-          <Route path="create-post" element={<div>2</div>} />
+          <Route path="posts/:postId" element={<ActivityPostPage />} />
+          <Route path="create-post" element={<CreateActivityPostPage />} />
         </Route>
-        <Route path="/event" element={<div>1</div>} />
-        <Route path="/event/create-post" element={<div>2</div>} />
-        <Route path="/event/posts/:postId" element={<div>3</div>} />
-        <Route path="/notice" element={<div>1</div>} />
-        <Route path="/notice/create-post" element={<div>2</div>} />
-        <Route path="/notice/posts/:postId" element={<div>3</div>} />
-        <Route path="/member" element={<div>1</div>} />
-        <Route path="/mypage" element={<div>1</div>} />
-        <Route path="/recruit" element={<div>1</div>} />
-        <Route path="/*" element={<div>not found</div>} />
+        <Route path="/event">
+          <Route index element={<EventPage />} />
+          <Route path="posts/:postId" element={<EventPostPage />} />
+          <Route path="create-post" element={<CreateEventPostPage />} />
+        </Route>
+        <Route path="/notice">
+          <Route index element={<NoticePage />} />
+          <Route path="posts/:postId" element={<NoticePostPage />} />
+          <Route path="create-post" element={<CreateNoticePostPage />} />
+        </Route>
+        <Route path="/member" element={<MemberPage />} />
+        <Route path="/mypage" element={<MyPage />} />
+        <Route path="/recruit" element={<RecruitPage />} />
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   )
