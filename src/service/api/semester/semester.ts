@@ -1,10 +1,10 @@
 'use client'
 
-import { convertSemesterFormat } from '@/utils'
 import { queryOptions } from '@tanstack/react-query'
 
 import { BACKEND_API } from '@/service/config'
 import { GetSemesterRequest, Semesters } from '@/service/model'
+import { convertSemesterFormat } from '@/utils'
 
 const getSemesters = async () => {
   const semesterClient = new Semesters(BACKEND_API)

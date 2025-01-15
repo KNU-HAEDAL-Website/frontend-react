@@ -1,6 +1,5 @@
-import { Semester } from '@/types'
-
 import { SemesterResponseDto } from '@/service/model'
+import { Semester } from '@/types'
 
 export default function convertSemesterFormat(
   semesters: SemesterResponseDto[],

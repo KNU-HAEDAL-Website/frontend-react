@@ -1,6 +1,7 @@
-import { Role } from '@/types'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
+
+import { Role } from '@/types'
 
 export type MyInfo = {
   userId: string

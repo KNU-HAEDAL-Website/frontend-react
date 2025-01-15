@@ -1,6 +1,5 @@
 'use client'
 
-import formatDateDistanceFromToday from '@/utils/date-distance'
 import { queryOptions } from '@tanstack/react-query'
 
 import { AUTHORIZATION_API, BACKEND_API } from '@/service/config'
@@ -12,6 +11,7 @@ import {
   NoticePostPagingResponse,
 } from '@/service/model'
 import { Notices } from '@/service/model/Notices'
+import { formatDateDistanceFromToday } from '@/utils'
 
 const noticePostPaging = async ({
   page,
