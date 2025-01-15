@@ -23,15 +23,17 @@ import {
   SignupPage,
 } from '@/pages'
 
+import { AuthRoute } from './custom-route'
+
 export const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/auth">
+        <Route path="/auth" element={<AuthRoute />}>
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignupPage />} />
         </Route>
+        <Route path="/" element={<MainPage />} />
         <Route path="/admin">
           <Route path="member" element={<AdminMemberPage />} />
           <Route path="semester" element={<AdminSemesterPage />} />
