@@ -11,8 +11,8 @@ type LinkButtonProps = {
 export const LinkButton = ({ children, linkTo }: LinkButtonProps) => {
   return (
     <div className="flex w-fit justify-center">
-      <Button variant="link" className="font-normal">
-        <Link to={linkTo} className="text-white">
+      <Button variant="link">
+        <Link to={linkTo} className="text-border hover:text-white">
           {children}
         </Link>
       </Button>
