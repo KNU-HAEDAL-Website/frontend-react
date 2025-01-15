@@ -4,7 +4,6 @@ import { Cross2Icon } from '@radix-ui/react-icons'
 
 import { Semester } from '@/types'
 
-import { AddSemesterDialog } from './add-dialog'
 import { DeleteSemesterDialog } from './delete-dialog'
 
 interface SemesterListProps {
@@ -15,11 +14,12 @@ export const SemesterList = ({ semesters }: SemesterListProps) => {
   const [selectedSemester, setSelectedSemester] = useState<Semester>()
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
 
+  if (!semesters.length) {
+    return <div className="text-primary">학기를 생성해주세요.</div>
+  }
+
   return (
-    <div className="flex flex-row gap-2">
-      <div className="h-9 w-9">
-        <AddSemesterDialog />
-      </div>
+    <>
       <div className="scroll scrollbar-hide flex flex-row gap-2 overflow-x-auto">
         {semesters.map((semester) => (
           <div
@@ -44,6 +44,6 @@ export const SemesterList = ({ semesters }: SemesterListProps) => {
         setOpen={setDeleteDialogOpen}
         semester={selectedSemester}
       />
-    </div>
+    </>
   )
 }

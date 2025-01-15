@@ -41,9 +41,7 @@ export const ChangeRoleDialogForm = ({ user }: ChangeRoleDialogFormProps) => {
 
   const form = useForm<ChangeRole>({ resolver: zodResolver(ChangeRoleSchema) })
 
-  if (error) {
-    throw error
-  }
+  if (error) throw error
 
   const onSubmit = form.handleSubmit((values) => {
     changeRole({ userId: user.userId, data: { role: values.role } })

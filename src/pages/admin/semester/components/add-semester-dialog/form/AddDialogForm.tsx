@@ -49,9 +49,7 @@ export const AddSemesterDialogForm = ({
     },
   })
 
-  if (error && !isPending) {
-    throw error
-  }
+  if (error) throw error
 
   const onSubmit = form.handleSubmit((values) => {
     addSemester({ semesterName: values.year + values.term })

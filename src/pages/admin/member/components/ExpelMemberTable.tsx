@@ -3,6 +3,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { ColumnDef } from '@tanstack/react-table'
 
+import { NotFound } from '@/components/common'
 import { AdminUserQuries } from '@/service/api'
 import { UserResponseDto } from '@/service/model'
 import { convertRoleName } from '@/utils'
@@ -19,7 +20,7 @@ export const ExpelMemberTable = () => {
 
   if (status === 'pending') return <SkeletonMemberTable />
 
-  if (error) return <div>{error.message}</div>
+  if (error) return <NotFound />
 
   if (!activeUsers) return <div>멤버가 없습니다.</div>
 

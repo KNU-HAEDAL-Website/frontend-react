@@ -1,0 +1,1 @@
+export { AdminErrorFallback } from './ErrorFallback'

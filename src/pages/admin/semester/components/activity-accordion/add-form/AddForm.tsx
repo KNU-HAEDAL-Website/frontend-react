@@ -41,9 +41,7 @@ export const AddActivityForm = ({ semesterId }: AddActivityFormProps) => {
 
   const [message, setMessage] = useState('')
 
-  if (error && !isPending) {
-    throw error
-  }
+  if (error) throw error
 
   const onSubmit = form.handleSubmit(
     (value: AddActivity) => {

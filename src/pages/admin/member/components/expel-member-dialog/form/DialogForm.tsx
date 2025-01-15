@@ -25,9 +25,7 @@ export const ExpelMemberDialogForm = ({
     onSuccess: (data) => onSuccess(data.message),
   })
 
-  if (error) {
-    throw error
-  }
+  if (error) throw error
 
   const onSuccess = (message: string) => {
     queryClient.invalidateQueries({

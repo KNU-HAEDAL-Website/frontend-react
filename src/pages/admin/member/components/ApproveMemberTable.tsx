@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import { ColumnDef } from '@tanstack/react-table'
 import { kstFormat } from '@toss/date'
 
+import { NotFound } from '@/components/common'
 import { AdminUserQuries } from '@/service/api'
 import { AdminUserResponseDto } from '@/service/model'
 
@@ -19,7 +20,7 @@ export const ApproveMemberTable = () => {
 
   if (status === 'pending') return <SkeletonMemberTable />
 
-  if (error) return <div>{error.message}</div>
+  if (error) return <NotFound />
 
   if (!inActiveUsers) return <div>회원 신청이 없습니다.</div>
 

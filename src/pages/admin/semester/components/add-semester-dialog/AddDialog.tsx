@@ -21,7 +21,7 @@ export const AddSemesterDialog = () => {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+      <DialogTrigger asChild className="h-9 w-9">
         <Button className="h-9 w-9 rounded-full p-0">
           <PlusIcon className="h-5 w-5 text-white" />
         </Button>

@@ -4,6 +4,7 @@ import { Cross2Icon } from '@radix-ui/react-icons'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { toast } from 'sonner'
 
+import { NotFound } from '@/components/common'
 import { queryClient } from '@/lib/query-client'
 import { activityQueries, deleteActivityApi } from '@/service/api'
 import { Semester } from '@/types'
@@ -13,18 +14,16 @@ type ActivityListProps = {
 }
 
 export const ActivityList = ({ semester }: ActivityListProps) => {
-  const { data: activities, status } = useQuery(
-    activityQueries.list({ semesterId: semester.semesterId }),
-  )
+  const {
+    data: activities,
+    status,
+    error: fetchError,
+  } = useQuery(activityQueries.list({ semesterId: semester.semesterId }))
 
   const { mutate: deleteActivity, error } = useMutation({
     mutationFn: deleteActivityApi,
     onSuccess: (data) => onSuccess(data.message),
   })
-
-  if (error) {
-    throw error
-  }
 
   const onSuccess = (message: string) => {
     toast(message, { duration: 2000 })
@@ -34,8 +33,12 @@ export const ActivityList = ({ semester }: ActivityListProps) => {
 
   if (status === 'pending') return <ActivityListSkeleton />
 
-  if (!activities || !activities.length)
+  if (fetchError) return <NotFound />
+
+  if (!activities.length)
     return <div className="text-muted-foreground">활동이 없습니다.</div>
+
+  if (error) throw error
 
   return (
     <div className="flex flex-wrap gap-2">

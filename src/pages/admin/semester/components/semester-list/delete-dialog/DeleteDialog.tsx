@@ -36,9 +36,7 @@ export const DeleteSemesterDialog = ({
     onSuccess: (data) => onSuccess(data.message),
   })
 
-  if (error && !isPending) {
-    throw error
-  }
+  if (error) throw error
 
   const onSuccess = (message: string) => {
     toast(message, { duration: 2000 })
