@@ -23,7 +23,7 @@ import {
   SignupPage,
 } from '@/pages'
 
-import { AuthRoute } from './custom-route'
+import { AdminRoute, AuthRoute } from './custom-route'
 
 export const Router = () => {
   return (
@@ -33,11 +33,11 @@ export const Router = () => {
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignupPage />} />
         </Route>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/admin">
+        <Route path="/admin" element={<AdminRoute />}>
           <Route path="member" element={<AdminMemberPage />} />
           <Route path="semester" element={<AdminSemesterPage />} />
         </Route>
+        <Route path="/" element={<MainPage />} />
         <Route path="/activity">
           <Route path=":semesterId" element={<Outlet />}>
             <Route path=":activityId" element={<ActivityPage />} />
