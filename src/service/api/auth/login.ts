@@ -1,5 +1,3 @@
-'use client'
-
 import { AUTHORIZATION_API, BACKEND_API } from '@/service/config'
 import { Login, LoginRequest, Logout } from '@/service/model'
 import { useAuthStore } from '@/store/auth'

@@ -1,5 +1,3 @@
-'use client'
-
 import { queryOptions } from '@tanstack/react-query'
 
 import { BACKEND_API } from '@/service/config'

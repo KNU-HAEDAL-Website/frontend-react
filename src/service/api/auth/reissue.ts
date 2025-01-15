@@ -1,5 +1,3 @@
-'use client'
-
 import { BACKEND_API } from '@/service/config'
 import { Reissue } from '@/service/model'
 import { useAuthStore } from '@/store/auth'
