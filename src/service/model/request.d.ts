@@ -40,6 +40,22 @@ export type GetAdminUsersRequest = {
   active: boolean
 }
 
+export interface LoginRequest {
+  data: LoginRequestDto
+}
+
+export interface SignupRequest {
+  data: JoinRequestDto
+}
+
+export interface CheckStudentNumberRequest {
+  studentNumber: number
+}
+
+export interface CheckUserIdRequest {
+  userId: string
+}
+
 export type AddBoardRequest = {
   activityId: number
   data: RegisterBoardPayload
