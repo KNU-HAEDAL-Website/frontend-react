@@ -1,2 +1,2 @@
 export * from './login'
-export { default as SignupPage } from './SignupPage'
+export * from './singup'
