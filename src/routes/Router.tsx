@@ -8,10 +8,7 @@ import {
   AdminSemesterPage,
   CreateActivityPostPage,
   CreateBoardPage,
-  CreateEventPostPage,
   CreateNoticePostPage,
-  EventPage,
-  EventPostPage,
   LoginPage,
   MainPage,
   MemberPage,
@@ -50,11 +47,6 @@ export const Router = () => {
         <Route path="/boards/:boardId">
           <Route path="posts/:postId" element={<ActivityPostPage />} />
           <Route path="create-post" element={<CreateActivityPostPage />} />
-        </Route>
-        <Route path="/event">
-          <Route index element={<EventPage />} />
-          <Route path="posts/:postId" element={<EventPostPage />} />
-          <Route path="create-post" element={<CreateEventPostPage />} />
         </Route>
         <Route path="/notice">
           <Route index element={<NoticePage />} />
