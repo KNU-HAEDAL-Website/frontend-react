@@ -1,3 +1,5 @@
-export { default as ActivityPage } from './ActivityPage'
+export * from './default'
+export * from './semester-redirect'
+export * from './activity-redirect'
 export { default as ActivityBoardPage } from './ActivityBoardPage'
 export { default as CreateBoardPage } from './CreateBoardPage'

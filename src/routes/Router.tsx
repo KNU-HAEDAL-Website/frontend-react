@@ -1,9 +1,10 @@
-import { BrowserRouter, Outlet, Route, Routes } from 'react-router'
+import { BrowserRouter, Route, Routes } from 'react-router'
 
 import {
   ActivityBoardPage,
   ActivityPage,
   ActivityPostPage,
+  ActivityRedirectPage,
   AdminMemberPage,
   AdminSemesterPage,
   CreateActivityPostPage,
@@ -17,10 +18,11 @@ import {
   NoticePage,
   NoticePostPage,
   RecruitPage,
+  SemesterRedirectPage,
   SignupPage,
 } from '@/pages'
 
-import { AdminRoute, AuthRoute } from './custom-route'
+import { ActivityRoute, AdminRoute, AuthRoute } from './custom-route'
 import { MainRoute } from './custom-route/main'
 
 export const Router = () => {
@@ -37,10 +39,10 @@ export const Router = () => {
             <Route path="semester" element={<AdminSemesterPage />} />
           </Route>
           <Route path="/" element={<MainPage />} />
-          <Route path="/activity">
-            <Route path=":semesterId" element={<Outlet />}>
-              <Route path=":activityId" element={<ActivityPage />} />
-            </Route>
+          <Route path="/activity" element={<ActivityRoute />}>
+            <Route index element={<SemesterRedirectPage />} />
+            <Route path=":semesterId" element={<ActivityRedirectPage />} />
+            <Route path=":semesterId/:activityId" element={<ActivityPage />} />
           </Route>
           <Route path="/activity/:activityId">
             <Route path="boards/:boardId" element={<ActivityBoardPage />} />

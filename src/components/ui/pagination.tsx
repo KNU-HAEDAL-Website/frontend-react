@@ -1,8 +1,9 @@
 import * as React from 'react'
+import { Link } from 'react-router'
 
 import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react'
 
-import { ButtonProps, buttonVariants } from '@/components/ui/button'
+import { Button, ButtonProps, buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
@@ -39,7 +40,7 @@ type PaginationLinkProps = {
   isActive?: boolean
   disabled?: boolean
 } & Pick<ButtonProps, 'size'> &
-  React.ComponentProps<'a'>
+  React.ComponentProps<typeof Link>
 
 const PaginationLink = ({
   className,
@@ -47,7 +48,7 @@ const PaginationLink = ({
   size = 'icon',
   ...props
 }: PaginationLinkProps) => (
-  <a
+  <Link
     aria-current={isActive ? 'page' : undefined}
     className={cn(
       buttonVariants({
@@ -63,24 +64,18 @@ PaginationLink.displayName = 'PaginationLink'
 
 type PaginationButtonProps = {
   isActive?: boolean
-} & Pick<ButtonProps, 'size'> &
-  React.ComponentProps<'a'>
+  disabled?: boolean
+} & React.HTMLAttributes<HTMLButtonElement>
 
 const PaginationButton = ({
   className,
   isActive,
-  size = 'icon',
   ...props
 }: PaginationButtonProps) => (
-  <a
+  <Button
     aria-current={isActive ? 'page' : undefined}
-    className={cn(
-      buttonVariants({
-        variant: isActive ? 'outline' : 'ghost',
-        size,
-      }),
-      className,
-    )}
+    variant={isActive ? 'outline' : 'ghost'}
+    className={cn('h-8 w-8 p-0 text-sm', className)}
     {...props}
   />
 )
@@ -88,31 +83,40 @@ PaginationButton.displayName = 'PaginationButton'
 
 const PaginationPrevious = ({
   className,
+  disabled = false,
   ...props
-}: React.ComponentProps<typeof PaginationButton>) => (
-  <PaginationButton
+}: React.ComponentProps<typeof PaginationLink>) => (
+  <PaginationLink
     aria-label="Go to previous page"
-    size="default"
-    className={cn('gap-1 pl-2.5', className)}
+    className={cn(
+      'p-3 text-muted-foreground hover:text-primary',
+      disabled && 'pointer-events-none text-primary/40',
+      className,
+    )}
     {...props}
   >
     <ChevronLeft className="h-5 w-5" />
-  </PaginationButton>
+  </PaginationLink>
 )
 PaginationPrevious.displayName = 'PaginationPrevious'
 
 const PaginationNext = ({
   className,
+  disabled = false,
   ...props
-}: React.ComponentProps<typeof PaginationButton>) => (
-  <PaginationButton
+}: React.ComponentProps<typeof PaginationLink>) => (
+  <PaginationLink
     aria-label="Go to next page"
     size="default"
-    className={cn('gap-1 pr-2.5', className)}
+    className={cn(
+      'p-3 text-muted-foreground hover:text-primary',
+      disabled && 'pointer-events-none text-primary/40',
+      className,
+    )}
     {...props}
   >
     <ChevronRight className="h-5 w-5" />
-  </PaginationButton>
+  </PaginationLink>
 )
 PaginationNext.displayName = 'PaginationNext'
 

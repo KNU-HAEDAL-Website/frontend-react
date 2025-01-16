@@ -1,0 +1,1 @@
+export { ActivityHero } from './Hero'
