@@ -9,7 +9,11 @@ import { AdminUserQuries } from '@/service/api'
 import { AdminUserResponseDto } from '@/service/model'
 
 import { ApproveMemberButton } from './approve-member-button'
-import { MemberTable, SkeletonMemberTable } from './member-table'
+import {
+  MemberTable,
+  MemberTableNone,
+  MemberTableSkeleton,
+} from './member-table'
 
 export const ApproveMemberTable = () => {
   const {
@@ -17,12 +21,6 @@ export const ApproveMemberTable = () => {
     status,
     error,
   } = useQuery(AdminUserQuries.inactive())
-
-  if (status === 'pending') return <SkeletonMemberTable />
-
-  if (error) return <NotFound />
-
-  if (!inActiveUsers) return <div>회원 신청이 없습니다.</div>
 
   const approveMemberColumn: ColumnDef<AdminUserResponseDto>[] = [
     {
@@ -70,9 +68,18 @@ export const ApproveMemberTable = () => {
     },
   ]
 
-  return (
-    <div className="flex w-full max-w-screen-lg">
-      <MemberTable data={inActiveUsers} columns={approveMemberColumn} />
-    </div>
-  )
+  if (status === 'pending')
+    return <MemberTableSkeleton columns={approveMemberColumn} />
+
+  if (error) return <NotFound />
+
+  if (!inActiveUsers.length)
+    return (
+      <MemberTableNone
+        message="회원가입 신청이 없습니다."
+        columns={approveMemberColumn}
+      />
+    )
+
+  return <MemberTable data={inActiveUsers} columns={approveMemberColumn} />
 }

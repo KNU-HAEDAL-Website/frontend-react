@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from 'react'
 
 import {
@@ -47,7 +45,7 @@ export function MemberTable<T>({ data, columns }: MemberTableProps<T>) {
   )
 
   return (
-    <div className="flex w-full flex-col gap-2 pb-20">
+    <div className="flex w-full max-w-screen-lg flex-col gap-2 pb-20">
       <MemberTableFilter table={table} />
       <MemberTableContent table={table} />
       <MemberTablePagination table={table} pageNumList={pageNumList} />

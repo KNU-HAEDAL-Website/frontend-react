@@ -9,7 +9,11 @@ import { UserResponseDto } from '@/service/model'
 import { convertRoleName } from '@/utils'
 
 import { ExpelMemberDialog } from './expel-member-dialog'
-import { MemberTable, SkeletonMemberTable } from './member-table'
+import {
+  MemberTable,
+  MemberTableNone,
+  MemberTableSkeleton,
+} from './member-table'
 
 export const ExpelMemberTable = () => {
   const {
@@ -17,12 +21,6 @@ export const ExpelMemberTable = () => {
     status,
     error,
   } = useQuery(AdminUserQuries.active())
-
-  if (status === 'pending') return <SkeletonMemberTable />
-
-  if (error) return <NotFound />
-
-  if (!activeUsers) return <div>멤버가 없습니다.</div>
 
   const expelMemberColumn: ColumnDef<UserResponseDto>[] = [
     {
@@ -70,9 +68,16 @@ export const ExpelMemberTable = () => {
     },
   ]
 
-  return (
-    <div className="flex w-full max-w-screen-lg">
-      <MemberTable data={activeUsers} columns={expelMemberColumn} />
-    </div>
-  )
+  if (status === 'pending')
+    return <MemberTableSkeleton columns={expelMemberColumn} />
+
+  if (error) return <NotFound />
+
+  if (!activeUsers.length) {
+    return (
+      <MemberTableNone message="회원이 없습니다." columns={expelMemberColumn} />
+    )
+  }
+
+  return <MemberTable data={activeUsers} columns={expelMemberColumn} />
 }

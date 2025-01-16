@@ -1,2 +1,3 @@
 export { MemberTable } from './MemberTable'
-export { SkeletonMemberTable } from './SkeletonTable'
+export { MemberTableNone } from './MemberTableNone'
+export { MemberTableSkeleton } from './MemberTableSkeleton'

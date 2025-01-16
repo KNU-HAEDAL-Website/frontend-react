@@ -8,7 +8,11 @@ import { AdminUserQuries } from '@/service/api'
 import { UserResponseDto } from '@/service/model'
 
 import { ChangeRoleDialog } from './change-role-dialog'
-import { MemberTable, SkeletonMemberTable } from './member-table'
+import {
+  MemberTable,
+  MemberTableNone,
+  MemberTableSkeleton,
+} from './member-table'
 
 export const ChangeRoleTable = () => {
   const {
@@ -16,12 +20,6 @@ export const ChangeRoleTable = () => {
     status,
     error,
   } = useQuery(AdminUserQuries.active())
-
-  if (status === 'pending') return <SkeletonMemberTable />
-
-  if (error) return <NotFound />
-
-  if (!activeUsers) return <div>멤버가 없습니다.</div>
 
   const changeRoleColumn: ColumnDef<UserResponseDto>[] = [
     {
@@ -62,9 +60,16 @@ export const ChangeRoleTable = () => {
     },
   ]
 
-  return (
-    <div className="flex w-full max-w-screen-lg">
-      <MemberTable data={activeUsers} columns={changeRoleColumn} />
-    </div>
-  )
+  if (status === 'pending')
+    return <MemberTableSkeleton columns={changeRoleColumn} />
+
+  if (error) return <NotFound />
+
+  if (!activeUsers.length) {
+    return (
+      <MemberTableNone message="회원이 없습니다." columns={changeRoleColumn} />
+    )
+  }
+
+  return <MemberTable data={activeUsers} columns={changeRoleColumn} />
 }
