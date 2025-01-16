@@ -25,15 +25,13 @@ export const PageBreadcrumb = ({ navLinks, pageName }: PageBreadcrumbProps) => {
     <Breadcrumb className="my-4">
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          <BreadcrumbLink to="/">Home</BreadcrumbLink>
         </BreadcrumbItem>
         {navLinks.map((navLink) => (
           <Fragment key={navLink.index}>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href={navLink.link}>
-                {navLink.name}
-              </BreadcrumbLink>
+              <BreadcrumbLink to={navLink.link}>{navLink.name}</BreadcrumbLink>
             </BreadcrumbItem>
           </Fragment>
         ))}
