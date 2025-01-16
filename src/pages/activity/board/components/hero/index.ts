@@ -1,0 +1,1 @@
+export { BoardHero } from './Hero'

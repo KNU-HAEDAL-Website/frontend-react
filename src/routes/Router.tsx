@@ -43,10 +43,14 @@ export const Router = () => {
             <Route index element={<SemesterRedirectPage />} />
             <Route path=":semesterId" element={<ActivityRedirectPage />} />
             <Route path=":semesterId/:activityId" element={<ActivityPage />} />
-          </Route>
-          <Route path="/activity/:activityId">
-            <Route path="boards/:boardId" element={<ActivityBoardPage />} />
-            <Route path="create-board" element={<CreateBoardPage />} />
+            <Route
+              path=":semesterId/:activityId/boards/:boardId"
+              element={<ActivityBoardPage />}
+            />
+            <Route
+              path=":semesterId/:activityId/create-board"
+              element={<CreateBoardPage />}
+            />
           </Route>
           <Route path="/boards/:boardId">
             <Route path="posts/:postId" element={<ActivityPostPage />} />

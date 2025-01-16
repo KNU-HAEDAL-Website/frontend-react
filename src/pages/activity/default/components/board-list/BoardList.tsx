@@ -17,7 +17,7 @@ type ActivityBoardListProps = {
 }
 
 export const ActivityBoardList = ({ activityId }: ActivityBoardListProps) => {
-  const { pathname, search } = useLocation()
+  const { search, pathname } = useLocation()
   const params = new URLSearchParams(search)
 
   const page =

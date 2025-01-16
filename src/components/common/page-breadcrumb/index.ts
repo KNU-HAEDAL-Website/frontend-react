@@ -1,1 +1,1 @@
-export { PageBreadcrumb } from './PageBreadcrumb'
+export { PageBreadcrumb, type NavLink } from './PageBreadcrumb'
