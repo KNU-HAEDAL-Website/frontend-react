@@ -1,0 +1,1 @@
+export { FooterDetail } from './Detail'

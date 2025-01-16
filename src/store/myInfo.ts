@@ -7,6 +7,7 @@ export type MyInfo = {
   userId: string
   userName: string
   role?: Role
+  profileImage?: string
 }
 
 interface MyInfoProps {
@@ -18,10 +19,17 @@ interface MyInfoProps {
 export const useMyInfoStore = create(
   persist<MyInfoProps>(
     (set) => ({
-      myInfo: { userId: '', userName: '', role: undefined },
+      myInfo: { userId: '', userName: '', role: undefined, profileImage: '' },
       setMyInfo: (myInfo) => set({ myInfo }),
       clearMyInfo: () =>
-        set({ myInfo: { userId: '', userName: '', role: undefined } }),
+        set({
+          myInfo: {
+            userId: '',
+            userName: '',
+            role: undefined,
+            profileImage: '',
+          },
+        }),
     }),
     {
       name: 'my-info',
