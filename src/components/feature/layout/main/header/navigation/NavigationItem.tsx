@@ -11,9 +11,8 @@ export const NavigationItem = ({ name, linkTo }: NavigationItemProps) => {
   const { pathname } = useLocation()
 
   const isActive =
-    (pathname === '/' && linkTo === '/') ||
-    pathname === linkTo ||
-    pathname?.startsWith(`${linkTo}/`)
+    pathname.startsWith(`${linkTo}`) ||
+    (pathname.startsWith('/boards') && linkTo === '/activity')
 
   return (
     <Link
