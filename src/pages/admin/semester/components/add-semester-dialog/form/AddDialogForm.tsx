@@ -56,7 +56,7 @@ export const AddSemesterDialogForm = ({
   })
 
   const onSuccess = (message?: string) => {
-    toast(message, { duration: 2000 })
+    toast.success(message, { duration: 2000 })
 
     queryClient.invalidateQueries({ queryKey: semesterQueries.all() })
 

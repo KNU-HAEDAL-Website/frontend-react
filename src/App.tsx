@@ -6,7 +6,7 @@ function App() {
   return (
     <ReactQueryClientProvider>
       <Router />
-      <Toaster />
+      <Toaster richColors theme="light" toastOptions={{}} />
     </ReactQueryClientProvider>
   )
 }

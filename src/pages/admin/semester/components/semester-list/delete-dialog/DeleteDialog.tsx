@@ -39,7 +39,7 @@ export const DeleteSemesterDialog = ({
   if (error) throw error
 
   const onSuccess = (message: string) => {
-    toast(message, { duration: 2000 })
+    toast.success(message, { duration: 2000 })
 
     queryClient.invalidateQueries({ queryKey: semesterQueries.all() })
 

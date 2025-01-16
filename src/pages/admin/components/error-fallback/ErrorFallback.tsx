@@ -16,7 +16,7 @@ export const AdminErrorFallback = ({
   const handleToast = useCallback(
     (message: string, status: number) => {
       if (status === 404 || status === 409) {
-        toast.error(message)
+        toast.error(message, { position: 'bottom-center', closeButton: true })
         resetErrorBoundary()
       }
     },

@@ -59,7 +59,7 @@ export const AddActivityForm = ({ semesterId }: AddActivityFormProps) => {
   )
 
   const onSuccess = (message?: string) => {
-    toast(message, { duration: 2000 })
+    toast.success(message, { duration: 2000 })
 
     queryClient.invalidateQueries({ queryKey: activityQueries.all() })
 

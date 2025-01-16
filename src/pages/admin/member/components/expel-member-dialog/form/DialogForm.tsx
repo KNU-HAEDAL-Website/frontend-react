@@ -32,7 +32,7 @@ export const ExpelMemberDialogForm = ({
       queryKey: AdminUserQuries.filter({ isActive: true }),
     })
 
-    toast(message, { duration: 2000 })
+    toast.success(message, { duration: 2000 })
   }
 
   return (

@@ -39,7 +39,7 @@ export const ApproveMemberButton = ({ userId }: ApproveMemberButtonProps) => {
   const onSuccess = (message: string) => {
     queryClient.invalidateQueries({ queryKey: AdminUserQuries.all() })
 
-    toast(message, { duration: 2000 })
+    toast.success(message, { duration: 2000 })
   }
 
   return (

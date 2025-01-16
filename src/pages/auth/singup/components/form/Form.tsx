@@ -76,7 +76,7 @@ export const SignupForm = () => {
     } catch (error) {
       if (error instanceof Error) {
         if (!isValid.userId || !isValid.studentNumber || !isValid.code)
-          toast(error.message)
+          toast.error(error.message)
       }
     }
   }
