@@ -1,5 +1,3 @@
-'use client'
-
 import { useFormContext } from 'react-hook-form'
 
 import { PartialBlock } from '@blocknote/core'

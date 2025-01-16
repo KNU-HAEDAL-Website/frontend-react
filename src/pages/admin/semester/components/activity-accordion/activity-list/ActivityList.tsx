@@ -1,5 +1,3 @@
-'use client'
-
 import { Cross2Icon } from '@radix-ui/react-icons'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { toast } from 'sonner'

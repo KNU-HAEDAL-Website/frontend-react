@@ -1,5 +1,3 @@
-'use client'
-
 import { useCallback, useEffect } from 'react'
 import { FallbackProps } from 'react-error-boundary'
 

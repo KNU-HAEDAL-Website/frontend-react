@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from 'react'
 
 import { PlusIcon } from '@radix-ui/react-icons'

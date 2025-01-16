@@ -1,5 +1,3 @@
-'use client'
-
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
 import { Table } from '@tanstack/react-table'
 

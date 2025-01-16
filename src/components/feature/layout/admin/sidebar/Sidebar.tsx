@@ -1,5 +1,3 @@
-'use client'
-
 import { Link, useLocation } from 'react-router'
 
 import { PersonIcon, RocketIcon } from '@radix-ui/react-icons'

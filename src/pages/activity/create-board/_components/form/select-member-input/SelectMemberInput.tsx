@@ -1,5 +1,3 @@
-'use client'
-
 import { Dispatch, SetStateAction } from 'react'
 
 import { useQuery } from '@tanstack/react-query'

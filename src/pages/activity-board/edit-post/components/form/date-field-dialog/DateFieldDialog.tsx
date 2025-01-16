@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from 'react'
 import { DateRange } from 'react-day-picker'
 import { useFormContext } from 'react-hook-form'

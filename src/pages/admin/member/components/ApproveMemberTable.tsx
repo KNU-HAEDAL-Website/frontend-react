@@ -1,5 +1,3 @@
-'use client'
-
 import { useQuery } from '@tanstack/react-query'
 import { ColumnDef } from '@tanstack/react-table'
 import { kstFormat } from '@toss/date'
