@@ -1,0 +1,1 @@
+export { EditActivityPostHero } from './Hero'

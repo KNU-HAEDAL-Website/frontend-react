@@ -8,3 +8,8 @@ export const API_ERROR_MESSAGES = {
     '네트워크 연결에 문제가 발생했습니다. 네트워크 상태를 확인하고 다시 시도해주세요.',
   UNKNOWN_ERROR: '예기치 않은 오류가 발생했습니다. 관리자에게 문의해주세요.',
 }
+
+export const ACCESS_ERROR_MESSAGE = {
+  UNAUTHORIZED_ERROR: '해당 페이지에 접근 할 권한이 없습니다.',
+  TOKEN_ERROR: '다시 로그인해주세요.',
+}

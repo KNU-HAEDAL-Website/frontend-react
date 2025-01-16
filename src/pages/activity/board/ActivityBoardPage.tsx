@@ -13,7 +13,7 @@ export default function ActivityBoardPage() {
         boardId={Number(params.boardId)}
       />
       <ActivityPostListSection boardId={Number(params.boardId)} />
-      <CreatePostButton boardId={Number(params.boardId)} />
+      <CreatePostButton />
     </div>
   )
 }

@@ -10,6 +10,7 @@ import {
   CreateActivityPostPage,
   CreateBoardPage,
   CreateNoticePostPage,
+  EditActivityPostPage,
   LoginPage,
   MainPage,
   MemberPage,
@@ -42,19 +43,21 @@ export const Router = () => {
           <Route path="/activity" element={<ActivityRoute />}>
             <Route index element={<SemesterRedirectPage />} />
             <Route path=":semesterId" element={<ActivityRedirectPage />} />
-            <Route path=":semesterId/:activityId" element={<ActivityPage />} />
-            <Route
-              path=":semesterId/:activityId/boards/:boardId"
-              element={<ActivityBoardPage />}
-            />
-            <Route
-              path=":semesterId/:activityId/create-board"
-              element={<CreateBoardPage />}
-            />
-          </Route>
-          <Route path="/boards/:boardId">
-            <Route path="posts/:postId" element={<ActivityPostPage />} />
-            <Route path="create-post" element={<CreateActivityPostPage />} />
+            <Route path=":semesterId/:activityId">
+              <Route index element={<ActivityPage />} />
+              <Route path="create-board" element={<CreateBoardPage />} />
+              <Route path="boards/:boardId">
+                <Route index element={<ActivityBoardPage />} />
+                <Route path="posts/:postId">
+                  <Route index element={<ActivityPostPage />} />
+                  <Route path="edit" element={<EditActivityPostPage />} />
+                </Route>
+                <Route
+                  path="create-post"
+                  element={<CreateActivityPostPage />}
+                />
+              </Route>
+            </Route>
           </Route>
           <Route path="/notice">
             <Route index element={<NoticePage />} />

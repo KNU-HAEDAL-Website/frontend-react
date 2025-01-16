@@ -1,0 +1,1 @@
+export { DeletePostDialog } from './DeleteDialog'

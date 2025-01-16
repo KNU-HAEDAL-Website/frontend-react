@@ -17,7 +17,6 @@ interface TableContentProps<T> {
 
 export function PostTableContent<T>({ table }: TableContentProps<T>) {
   const { pathname } = useLocation()
-  const boardId = pathname[pathname.length - 1]
 
   return (
     <Table>
@@ -44,7 +43,7 @@ export function PostTableContent<T>({ table }: TableContentProps<T>) {
           <TableRow key={row.id}>
             {row.getVisibleCells().map((cell) => (
               <TableCell key={cell.id}>
-                <Link to={`/boards/${boardId}/posts/${row.getValue('postId')}`}>
+                <Link to={`${pathname}/posts/${row.getValue('postId')}`}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </Link>
               </TableCell>

@@ -8,6 +8,7 @@ import {
   DeleteActivityPostRequest,
   GetActivityPostDetailRequest,
   PostPagingResponse,
+  UpdateActivityPostRequest,
 } from '@/service/model'
 import { formatDateDistanceFromToday } from '@/utils'
 
@@ -95,6 +96,17 @@ export const addActivityPostApi = async ({
 }: AddActivityPostRequest) => {
   const postClient = new Boards(AUTHORIZATION_API)
   const response = await postClient.registerPostWithBoard(boardId, data)
+
+  return response.data
+}
+
+export const updateActivityPostApi = async ({
+  boardId,
+  postId,
+  data,
+}: UpdateActivityPostRequest) => {
+  const postClient = new Boards(AUTHORIZATION_API)
+  const response = await postClient.updatePostWithBoard(boardId, postId, data)
 
   return response.data
 }

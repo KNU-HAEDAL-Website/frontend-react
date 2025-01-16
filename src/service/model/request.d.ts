@@ -110,6 +110,12 @@ export type DeleteActivityPostRequest = {
   postId: number
 }
 
+export type UpdateActivityPostRequest = {
+  boardId: number
+  postId: number
+  data: PostWithBoardRequestDto
+}
+
 export type GetActivityPostDetailRequest = {
   boardId: number
   postId: number
