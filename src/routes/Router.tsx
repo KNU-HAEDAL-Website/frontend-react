@@ -42,12 +42,12 @@ export const Router = () => {
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignupPage />} />
         </Route>
+        <Route path="/" element={<MainPage />} />
         <Route element={<MainRoute />}>
           <Route path="/admin" element={<AdminRoute />}>
             <Route path="member" element={<AdminMemberPage />} />
             <Route path="semester" element={<AdminSemesterPage />} />
           </Route>
-          <Route path="/" element={<MainPage />} />
           <Route path="/activity" element={<ActivityRoute />}>
             <Route index element={<SemesterRedirectPage />} />
             <Route path=":semesterId" element={<ActivityRedirectPage />} />

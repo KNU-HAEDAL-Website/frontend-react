@@ -4,6 +4,15 @@ export default {
   content: ['./index.html', './src/**/*.{ts,tsx,js,jsx}'],
   theme: {
     extend: {
+      rotate: {
+        '-15': '-15deg',
+      },
+      backgroundImage: {
+        'custom-gradient':
+          'linear-gradient(180deg, transparent 0%, #010238 10%, #010238 80%, transparent 100%)',
+        'custom-gradient-2':
+          'linear-gradient(180deg, transparent 0%, #010238 10%, #010238 80%, transparent 100%)',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
