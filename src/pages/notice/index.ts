@@ -1,3 +1,4 @@
-export { default as NoticePage } from './NoticePage'
-export { default as CreateNoticePostPage } from './CreateNoticePostPage'
-export { default as NoticePostPage } from './NoticePostPage'
+export * from './create-post'
+export * from './default'
+export * from './edit-post'
+export * from './post'

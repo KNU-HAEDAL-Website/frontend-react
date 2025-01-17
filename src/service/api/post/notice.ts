@@ -7,6 +7,7 @@ import {
   GetNoticePostDetailRequest,
   NoticePostPagingRequest,
   NoticePostPagingResponse,
+  UpdateNoticePostRequest,
 } from '@/service/model'
 import { Notices } from '@/service/model/Notices'
 import { formatDateDistanceFromToday } from '@/utils'
@@ -83,6 +84,16 @@ export const deleteNoticePostApi = async ({
 export const addNoticePostApi = async ({ data }: AddNoticePostRequest) => {
   const noticeClient = new Notices(AUTHORIZATION_API)
   const response = await noticeClient.registerNoticePost(data)
+
+  return response.data
+}
+
+export const updateNoticePostApi = async ({
+  postId,
+  data,
+}: UpdateNoticePostRequest) => {
+  const noticeClient = new Notices(AUTHORIZATION_API)
+  const response = await noticeClient.updateNoticePost(postId, data)
 
   return response.data
 }

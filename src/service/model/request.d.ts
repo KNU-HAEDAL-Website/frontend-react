@@ -137,6 +137,11 @@ export type DeleteNoticePostRequest = {
   postId: number
 }
 
+export type UpdateNoticePostRequest = {
+  postId: number
+  data: BasePostRequestDto
+}
+
 export type GetNoticePostDetailRequest = {
   postId: number
 }

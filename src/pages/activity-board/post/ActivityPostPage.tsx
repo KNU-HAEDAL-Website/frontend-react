@@ -3,14 +3,10 @@ import { useParams } from 'react-router'
 import { useSuspenseQuery } from '@tanstack/react-query'
 
 import { NotFound } from '@/components/common'
-import { PostContent } from '@/components/feature'
+import { BoardNavigationButton, PostContent } from '@/components/feature'
 import { activityPostQuries, boardQueries } from '@/service/api'
 
-import {
-  ActivityPostDetail,
-  ActivityPostHero,
-  BoardNavigationButton,
-} from './_components'
+import { ActivityPostDetail, ActivityPostHero } from './_components'
 
 export default function ActivityPostPage() {
   const params = useParams()

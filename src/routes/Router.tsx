@@ -11,6 +11,7 @@ import {
   CreateBoardPage,
   CreateNoticePostPage,
   EditActivityPostPage,
+  EditNoticePostPage,
   LoginPage,
   MainPage,
   MemberPage,
@@ -23,7 +24,13 @@ import {
   SignupPage,
 } from '@/pages'
 
-import { ActivityRoute, AdminRoute, AuthRoute } from './custom-route'
+import {
+  ActivityRoute,
+  AdminNoticeRoute,
+  AdminRoute,
+  AuthRoute,
+  NoticeRoute,
+} from './custom-route'
 import { MainRoute } from './custom-route/main'
 
 export const Router = () => {
@@ -59,10 +66,16 @@ export const Router = () => {
               </Route>
             </Route>
           </Route>
-          <Route path="/notice">
+          <Route path="/notice" element={<NoticeRoute />}>
             <Route index element={<NoticePage />} />
             <Route path="posts/:postId" element={<NoticePostPage />} />
-            <Route path="create-post" element={<CreateNoticePostPage />} />
+            <Route element={<AdminNoticeRoute />}>
+              <Route
+                path="posts/:postId/edit"
+                element={<EditNoticePostPage />}
+              />
+              <Route path="create-post" element={<CreateNoticePostPage />} />
+            </Route>
           </Route>
           <Route path="/member" element={<MemberPage />} />
           <Route path="/mypage" element={<MyPage />} />

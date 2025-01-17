@@ -1,0 +1,1 @@
+export { NoticeBoardHero } from './Hero'

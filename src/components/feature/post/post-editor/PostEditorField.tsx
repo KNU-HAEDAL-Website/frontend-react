@@ -1,21 +1,24 @@
 import { useFormContext } from 'react-hook-form'
 
+import { PartialBlock } from '@blocknote/core'
 import { BlockNoteView } from '@blocknote/mantine'
 import '@blocknote/mantine/style.css'
 import { useCreateBlockNote } from '@blocknote/react'
 import { useMutation } from '@tanstack/react-query'
 
 import { FormField, FormItem, FormMessage } from '@/components/ui'
-import { CreateActivityPost } from '@/schema/post'
 import { uploadPostImageApi } from '@/service/api/post/image-upload'
 import { BASE_URL } from '@/service/config/instance'
+import { CreateActivityPost } from '@/service/schema'
 
 interface PostContentFieldEditorProps {
   addImageId: (url: string, id: number) => void
+  contents?: string
 }
 
 const PostContentFieldEditor = ({
   addImageId,
+  contents,
 }: PostContentFieldEditorProps) => {
   const { mutateAsync: uploadPostImage } = useMutation({
     mutationFn: uploadPostImageApi,
@@ -33,7 +36,16 @@ const PostContentFieldEditor = ({
     return imageUrl
   }
 
+  const initialContent: PartialBlock[] = contents
+    ? JSON.parse(contents)
+    : [
+        {
+          type: 'paragraph',
+        },
+      ]
+
   const editor = useCreateBlockNote({
+    initialContent,
     uploadFile,
   })
 

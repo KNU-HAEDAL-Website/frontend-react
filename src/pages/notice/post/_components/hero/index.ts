@@ -1,0 +1,1 @@
+export { NoticePostHero } from './PostHero'
