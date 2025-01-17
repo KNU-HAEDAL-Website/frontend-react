@@ -40,7 +40,7 @@ export default function EditActivityPostPage() {
   if (!board || !postInfo) return <NotFound />
 
   return (
-    <div className="flex w-full flex-col gap-6 py-10">
+    <div className="flex w-full flex-col gap-6 pb-10">
       <EditActivityPostHero boardName={board.boardName} />
       <EditActivityPostForm
         postInfo={postInfo}

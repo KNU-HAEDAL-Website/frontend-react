@@ -32,7 +32,7 @@ export default function ActivityPostPage() {
   if (!post) return <NotFound />
 
   return (
-    <div className="flex w-full flex-col pt-10">
+    <div className="flex w-full flex-col">
       <ActivityPostHero boardName={board.boardName} />
       <ActivityPostDetail boardId={Number(params.boardId)} post={post} />
       <PostContent content={post.postContent} />

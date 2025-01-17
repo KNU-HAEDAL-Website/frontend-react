@@ -32,7 +32,7 @@ export default function CreateActivityPost() {
   if (!board) return <NotFound />
 
   return (
-    <div className="flex w-full flex-col gap-6 py-10">
+    <div className="flex w-full flex-col gap-6 pb-10">
       <CreateActivityPostHero boardName={board.boardName} />
       <CreateActivityPostForm boardId={Number(params.boardId)} />
     </div>

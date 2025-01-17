@@ -42,14 +42,14 @@ export default function CreateBoardPage() {
 
   if (semesterError || activityError)
     return (
-      <div className="w-full pt-10">
+      <div className="w-full">
         <CreateBoardHero />
         <NotFound />
       </div>
     )
 
   return (
-    <div className="w-full pt-10">
+    <div className="w-full">
       <CreateBoardHero />
       <CreateBoardDetail
         semesterName={semester.semesterName}
@@ -63,7 +63,7 @@ export default function CreateBoardPage() {
 
 const CreateBoardSkeleton = () => {
   return (
-    <div className="w-full pt-10">
+    <div className="w-full">
       <div>
         <Separator variant="dark" />
         <Skeleton className="my-4 h-5 w-full" />

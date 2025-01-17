@@ -13,15 +13,13 @@ export const ActivityRoute = () => {
     <ErrorBoundary FallbackComponent={ActivityErrorFallback}>
       <Suspense
         fallback={
-          <div className="flex w-full max-w-screen-xl flex-col items-center gap-2 px-5 sm:px-20">
+          <div className="flex w-full flex-col items-center gap-2">
             <ActivityHero />
             <SemesterListSkeleton />
           </div>
         }
       >
-        <div className="flex w-full max-w-screen-xl px-5 sm:px-20">
-          <Outlet />
-        </div>
+        <Outlet />
       </Suspense>
     </ErrorBoundary>
   )

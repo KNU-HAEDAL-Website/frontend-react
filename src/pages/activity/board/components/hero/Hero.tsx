@@ -47,7 +47,7 @@ export const BoardHero = ({ boardId, activityId }: BoardHeroProps) => {
   if (!boardDetail) return <NotFound />
 
   return (
-    <div className="flex flex-col pt-10">
+    <div className="flex flex-col">
       <Separator variant="dark" />
       <ActivityBreadcrumb
         navLinks={[]}
