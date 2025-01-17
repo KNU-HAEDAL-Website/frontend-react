@@ -14,6 +14,8 @@ export const AuthRoute = () => {
     }
   }, [isLoggedIn, navigate])
 
+  if (isLoggedIn) return null
+
   return (
     <main className="flex h-fit min-h-screen flex-col items-center justify-center gap-4 bg-primary py-20">
       <Logo className="w-40 sm:w-52" />
