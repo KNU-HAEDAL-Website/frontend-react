@@ -90,8 +90,8 @@ export const Router = () => {
               </Suspense>
             }
           />
-          <Route path="/recruit" element={<RecruitPage />} />
         </Route>
+        <Route path="/recruit" element={<RecruitPage />} />
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
