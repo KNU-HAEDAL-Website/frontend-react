@@ -18,6 +18,7 @@ import {
   GetUsersData,
   ProfileRequestDto,
   UpdateProfileData,
+  UpdateProfileImage1Data,
   UpdateProfileImageData,
   UpdateProfileImagePayload,
 } from './data-contracts'
@@ -94,6 +95,27 @@ export class Users<
       body: data,
       secure: true,
       type: ContentType.FormData,
+      format: 'json',
+      ...params,
+    })
+  /**
+   * No description
+   *
+   * @tags 프로필 API
+   * @name UpdateProfileImage1
+   * @summary 프로필 이미지 삭제
+   * @request DELETE:/users/{userId}/profile/image
+   * @secure
+   * @response `200` `UpdateProfileImage1Data`
+   * @response `401` `void`
+   * @response `403` `void`
+   * @response `404` `void`
+   */
+  deleteProfileImage = (userId: string, params: RequestParams = {}) =>
+    this.request<UpdateProfileImage1Data, void>({
+      path: `/users/${userId}/profile/image`,
+      method: 'DELETE',
+      secure: true,
       format: 'json',
       ...params,
     })

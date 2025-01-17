@@ -29,6 +29,7 @@ import {
   AdminNoticeRoute,
   AdminRoute,
   AuthRoute,
+  MyPageRoute,
   NoticeRoute,
 } from './custom-route'
 import { MainRoute } from './custom-route/main'
@@ -77,8 +78,10 @@ export const Router = () => {
               <Route path="create-post" element={<CreateNoticePostPage />} />
             </Route>
           </Route>
+          <Route path="/mypage" element={<MyPageRoute />}>
+            <Route index element={<MyPage />} />
+          </Route>
           <Route path="/member" element={<MemberPage />} />
-          <Route path="/mypage" element={<MyPage />} />
           <Route path="/recruit" element={<RecruitPage />} />
         </Route>
         <Route path="/*" element={<NotFoundPage />} />

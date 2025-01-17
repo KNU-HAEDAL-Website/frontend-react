@@ -1,5 +1,7 @@
 import { Paging } from '@/types'
 
+import { UpdateProfileImagePayload } from './data-contracts'
+
 export type GetActivitiesRequest = {
   semesterId: number
 }
@@ -89,9 +91,18 @@ export type GetUserProfileRequest = {
   userId: string
 }
 
+export type UpdateProfileImageRequest = {
+  userId: string
+  data: UpdateProfileImagePayload
+}
+
+export type DeleteProfileImageRequest = {
+  userId: string
+}
+
 export type UpdateProfileRequest = {
   userId: string
-  profileData: ProfileRequestDto
+  data: ProfileRequestDto
 }
 
 export type ActivityPostPagingRequest = {

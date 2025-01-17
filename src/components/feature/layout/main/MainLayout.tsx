@@ -9,8 +9,8 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
       <Content className="fixed z-40 h-16 w-full bg-primary text-white">
         <Header />
       </Content>
-      <div className="mt-16 flex w-full max-w-screen-xl flex-1 flex-col items-center px-5 pt-10 sm:px-20">
-        {children}
+      <div className="mt-16 flex w-full flex-1 justify-center px-5 pt-10 sm:px-20">
+        <div className="max-w-screen-xl flex-1">{children}</div>
       </div>
       <Content className="bg-slate-100 text-primary">
         <Footer />

@@ -2,9 +2,10 @@ import { queryOptions } from '@tanstack/react-query'
 
 import { AUTHORIZATION_API } from '@/service/config'
 import {
+  DeleteProfileImageRequest,
   GetUserProfileRequest,
-  // UpdateProfileImagePayload,
-  // UpdateProfileRequest,
+  UpdateProfileImageRequest,
+  UpdateProfileRequest,
   Users,
 } from '@/service/model'
 
@@ -17,36 +18,43 @@ const getUserProfile = async ({ userId }: GetUserProfileRequest) => {
 
 export const profileQuries = {
   all: () => ['profile'],
+  profiles: ({ userId }: GetUserProfileRequest) => [
+    ...profileQuries.all(),
+    userId,
+  ],
   profile: ({ userId }: GetUserProfileRequest) =>
     queryOptions({
-      queryKey: [...profileQuries.all(), userId],
+      queryKey: [...profileQuries.profiles({ userId })],
       enabled: !!userId,
       queryFn: async () => getUserProfile({ userId }),
     }),
 }
 
-// export const updateProfileApi = async ({
-//   userId,
-//   profileData,
-// }: UpdateProfileRequest) => {
-//   const userClient = new Users(AUTHORIZATION_API)
-//   const response = await userClient.updateProfile(userId, profileData)
-//   return response.data
-// }
+export const updateProfileInfoApi = async ({
+  userId,
+  data,
+}: UpdateProfileRequest) => {
+  const userClient = new Users(AUTHORIZATION_API)
+  const response = await userClient.updateProfile(userId, data)
 
-// export const updateProfileImageApi = async ({
-//   userId,
-//   file,
-// }: {
-//   userId: string
-//   file: File
-// }) => {
-//   const userClient = new Users(AUTHORIZATION_API)
-//   const formData = new FormData()
-//   formData.append('file', file)
-//   const response = await userClient.updateProfileImage(
-//     userId,
-//     formData as unknown as UpdateProfileImagePayload,
-//   )
-//   return response.data
-// }
+  return response.data
+}
+
+export const updateProfileImageApi = async ({
+  userId,
+  data,
+}: UpdateProfileImageRequest) => {
+  const userClient = new Users(AUTHORIZATION_API)
+  const response = await userClient.updateProfileImage(userId, data)
+
+  return response.data
+}
+
+export const deleteProfileImageApi = async ({
+  userId,
+}: DeleteProfileImageRequest) => {
+  const userClient = new Users(AUTHORIZATION_API)
+  const response = await userClient.deleteProfileImage(userId)
+
+  return response.data
+}
