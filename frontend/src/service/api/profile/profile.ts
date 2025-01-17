@@ -1,6 +1,6 @@
 import { queryOptions, useSuspenseInfiniteQuery } from '@tanstack/react-query'
 
-import { AUTHORIZATION_API } from '@/service/config'
+import { AUTHORIZATION_API, BACKEND_API } from '@/service/config'
 import {
   DeleteProfileImageRequest,
   GetProfilePagingRequest,
@@ -18,7 +18,7 @@ export const getProfilePaging = async ({
   size = 24,
   roles = ['ROLE_ADMIN', 'ROLE_MEMBER', 'ROLE_TEAM_LEADER'],
 }: GetProfilePagingRequest): Promise<ProfilePagingResponse> => {
-  const userClient = new Users(AUTHORIZATION_API)
+  const userClient = new Users(BACKEND_API)
   const response = await userClient.getProfiles({
     page: Number(page),
     size,
