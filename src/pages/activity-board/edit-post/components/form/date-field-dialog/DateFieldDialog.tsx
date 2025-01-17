@@ -19,7 +19,7 @@ import {
   FormMessage,
   Label,
 } from '@/components/ui'
-import { CreateActivityPost } from '@/schema/post'
+import { CreateActivityPost } from '@/service/schema'
 
 import { DateDialogTriggerButton } from './TriggerButton'
 

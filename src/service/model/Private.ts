@@ -8,7 +8,7 @@
  * ## SOURCE: https://github.com/acacode/swagger-typescript-api ##
  * ---------------------------------------------------------------
  */
-import { ContentType, RequestParams } from '@/lib/http-client'
+import { RequestParams } from '@/lib/http-client'
 
 import { CustomHttpClient } from '../config'
 import { GetUserData } from './data-contracts'

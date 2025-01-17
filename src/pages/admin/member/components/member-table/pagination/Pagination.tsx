@@ -24,7 +24,7 @@ export function MemberTablePagination<T>({
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
-            href=""
+            to=""
             onClick={() => table.previousPage()}
             aria-disabled={!table.getCanPreviousPage()}
             className={cn(
@@ -50,7 +50,7 @@ export function MemberTablePagination<T>({
         })}
         <PaginationItem>
           <PaginationNext
-            href=""
+            to=""
             onClick={() => table.nextPage()}
             aria-disabled={!table.getCanNextPage()}
             className={cn(

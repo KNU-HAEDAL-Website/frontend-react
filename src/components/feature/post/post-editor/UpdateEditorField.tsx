@@ -7,9 +7,9 @@ import { useCreateBlockNote } from '@blocknote/react'
 import { useMutation } from '@tanstack/react-query'
 
 import { FormField, FormItem, FormMessage } from '@/components/ui'
-import { CreateActivityPost } from '@/schema/post'
 import { uploadPostImageApi } from '@/service/api/post/image-upload'
 import { BASE_URL } from '@/service/config/instance'
+import { CreateActivityPost } from '@/service/schema'
 
 interface UpdateContentFieldEditorProps {
   addImageId: (url: string, id: number) => void
