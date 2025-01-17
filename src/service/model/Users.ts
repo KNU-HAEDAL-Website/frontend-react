@@ -197,7 +197,10 @@ export class Users<
     this.request<GetProfilesData, any>({
       path: `/users/profiles`,
       method: 'GET',
-      query: query,
+      query: {
+        ...query,
+        roles: query.roles.join(', '),
+      },
       secure: true,
       ...params,
     })

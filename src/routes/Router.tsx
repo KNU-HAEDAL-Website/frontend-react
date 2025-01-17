@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router'
 
 import {
@@ -81,7 +82,14 @@ export const Router = () => {
           <Route path="/mypage" element={<MyPageRoute />}>
             <Route index element={<MyPage />} />
           </Route>
-          <Route path="/member" element={<MemberPage />} />
+          <Route
+            path="/member"
+            element={
+              <Suspense>
+                <MemberPage />
+              </Suspense>
+            }
+          />
           <Route path="/recruit" element={<RecruitPage />} />
         </Route>
         <Route path="/*" element={<NotFoundPage />} />

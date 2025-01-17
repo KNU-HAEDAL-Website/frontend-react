@@ -1,6 +1,6 @@
-import { Paging } from '@/types'
+import { Paging, Role } from '@/types'
 
-import { UpdateProfileImagePayload } from './data-contracts'
+import { ProfileResponseDto, UpdateProfileImagePayload } from './data-contracts'
 
 export type GetActivitiesRequest = {
   semesterId: number
@@ -86,6 +86,20 @@ export type BoardPagingResponse = {
 export type GetUserInfoRequest = {
   userId: string
 }
+
+export type GetProfilePagingRequest = {
+  page?: string
+  size?: number
+  roles: Role[]
+}
+
+export type ProfilePagingProps = {
+  initPageToken?: string
+} & GetProfilePagingRequest
+
+export type ProfilePagingResponse = {
+  profiles: ProfileResponseDto[]
+} & Paging
 
 export type GetUserProfileRequest = {
   userId: string
